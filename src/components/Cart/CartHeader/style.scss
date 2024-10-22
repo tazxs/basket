@@ -1,0 +1,29 @@
+@import '../../App/vars';
+
+
+.cart-header {
+    display: grid;
+    grid-template-columns: 2fr repeat(3, 3fr) 1fr;
+    column-gap: 30px;
+
+    padding: 22px 0;
+    background-color: #EAEFF2;
+
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 1.2;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+
+    @media (max-width: $mobile) {
+        height: 1px;
+        padding: 0;
+        & > * {
+            display: none;
+        }
+    }
+}
+
+.cart-header__title {
+    grid-column-start: 2;
+}

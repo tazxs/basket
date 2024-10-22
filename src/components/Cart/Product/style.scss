@@ -1,0 +1,54 @@
+@import '../../App/vars';
+
+.product {
+    display: grid;
+    grid-template-columns: 2fr repeat(3, 3fr) 1fr;
+    column-gap: 30px;
+
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(126, 155, 189, 0.3);
+
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 1.3;
+
+    @media (max-width: $mobile) {
+        grid-template-columns: repeat(6, 1fr);
+        grid-auto-rows: minmax(60px, auto);
+        column-gap: 15px;
+        row-gap: 10px;
+    }
+}
+
+.product > * {
+    align-self: center;
+}
+
+.product__img {
+    justify-self: center;
+    @media (max-width: $mobile){
+        grid-column: 1/3;
+    }
+}
+
+.product__title {
+    @media (max-width: $mobile){
+        grid-column: 3/-1;
+    }
+}
+.product__count {
+    @media (max-width: $mobile) {
+		grid-column: 1/3;
+		justify-self: center;
+	}
+}
+
+.product__price {
+    @media (max-width: $mobile) {
+		grid-column: 3/6;
+	}
+}
+
+.product__controls {
+    justify-self: center;
+}
