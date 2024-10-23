@@ -5,8 +5,13 @@ import data from '../../data';
 import { useState } from "react";
 const Cart = () => {
     const [cart] = useState(data)
+    const deleteProduct = () => {
+        console.log('s');
+        
+    }
+
     const products = cart.map((product) => {
-        return <Product product={product} key={product.id}/>;
+        return <Product product={product} key={product.id} deleteProduct={deleteProduct}/>;
     })
     return (
         <section className="cart">

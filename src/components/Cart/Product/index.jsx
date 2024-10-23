@@ -1,7 +1,7 @@
 import Count from '../Count';
 import './style.scss'
-
-const Product = ({product}) => {
+import Cross from './../../../img/icons/cross.svg';
+const Product = ({product, deleteProduct}) => {
     const {img,title,price,} = product; //count,id
     return (
         <section className="product">
@@ -17,8 +17,8 @@ const Product = ({product}) => {
             </div>
             <div className="product__price">{price} тг</div>
             <div className="product__controls">
-                <button type="button">
-                    <img src={"./img/icons/cross.svg"} alt="Delete" />
+                <button type="button" onClick={deleteProduct}>
+                    <img src={Cross} alt="Delete" />
                 </button>
             </div>
         </section>
