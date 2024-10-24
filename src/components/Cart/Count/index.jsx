@@ -1,7 +1,7 @@
 import './style.scss'
 import UpImg from '../../../img/icons/icon-up.svg';
 import DownImg from '../../../img/icons/icon-down.svg';
-const Count = () => {
+const Count = ({count, increase, id,decrease}) => {
     return (
         <div className="count">
             <div className="count__box">
@@ -10,15 +10,15 @@ const Count = () => {
                     className="count__input"
                     min="1"
                     max="100"
-                    value="1"
+                    value={count}
                 />
             </div>
             <div className="count__controls">
                 <button type="button" className="count__up">
-                    <img src={UpImg} alt="Increase" />
+                    <img src={UpImg} alt="Increase" onClick={() => increase(id)}/>
                 </button>
                 <button type="button" className="count__down">
-                    <img src={DownImg} alt="Decrease" />
+                    <img src={DownImg} alt="Decrease" onClick={() => decrease(id)}/>
                 </button>
             </div>
         </div>
