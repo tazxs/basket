@@ -5,6 +5,11 @@ import data from "../../data";
 import { useState } from "react";
 const Cart = () => {
     const [cart, setCart] = useState(data);
+    const [total, setTotal] = useState({
+        price: 500,
+        count: 5,
+    })
+
     const deleteProduct = (id) => {
         setCart((cart) => {
             return cart.filter((product) => {
@@ -41,6 +46,21 @@ const Cart = () => {
             });
         });
     }
+    const changeValue = (id,value) => {
+        setCart((cart) => {
+            return cart.map((product) => {
+                if(product.id === id){
+                    return {
+                        ...product,
+                        count: value,
+                        priceTotla: value * product.price
+                    }
+                }
+                return product;
+            })
+        })
+    }
+
     const products = cart.map((product) => {
         return (
             <Product
@@ -49,6 +69,7 @@ const Cart = () => {
                 deleteProduct={deleteProduct}
                 increase={increase}
                 decrease={decrease}
+                changeValue={changeValue}
             />
         );
     });
@@ -56,7 +77,7 @@ const Cart = () => {
         <section className="cart">
             <CartHeader />
             {products}
-            <CardFooter />
+            <CardFooter total={total}/>
         </section>
     );
 };

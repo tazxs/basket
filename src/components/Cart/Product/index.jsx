@@ -1,7 +1,7 @@
 import Count from '../Count';
 import './style.scss'
 import Cross from './../../../img/icons/cross.svg';
-const Product = ({product, deleteProduct, increase,decrease}) => {
+const Product = ({product, deleteProduct, increase,decrease,changeValue}) => {
     const {img,title,id,count,priceTotla} = product; //count,id
     return (
         <section className="product">
@@ -13,7 +13,7 @@ const Product = ({product, deleteProduct, increase,decrease}) => {
             </div>
             <div className="product__title">{title}</div>
             <div className="product__count">
-                <Count count={count} increase={increase} decrease={decrease} id={id}/>
+                <Count count={count} increase={increase} decrease={decrease} changeValue={changeValue} id={id}/>
             </div>
             <div className="product__price">{priceTotla} тг</div>
             <div className="product__controls">
